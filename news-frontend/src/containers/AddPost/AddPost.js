@@ -40,13 +40,19 @@ const AddPost = () => {
 		setPost(prevState => ({
 			...prevState,
 			[name]: file
-		}))
+		}));
 	};
 
-	const sendPost = (e) => {
+	const submitFormHandler = e => {
 		e.preventDefault();
 
-		dispatch(postPost(post));
+		const formData = new FormData();
+
+		Object.keys(post).forEach(key => {
+			formData.append(key, post[key]);
+		});
+
+		dispatch(postPost(formData));
 	};
 
 	return (
@@ -57,9 +63,9 @@ const AddPost = () => {
 			>
 				Add New Post
 			</Typography>
-			<form onSubmit={sendPost}>
-				<Grid container md={6} direction="column" spacing={3}>
-					<Grid item spacing={2}>
+			<form onSubmit={submitFormHandler}>
+				<Grid container direction="column" spacing={3}>
+					<Grid item md={6}>
 						<TextField
 							fullWidth label="Title"
 							variant="outlined"
@@ -68,7 +74,7 @@ const AddPost = () => {
 							onChange={changeHandler}
 						/>
 					</Grid>
-					<Grid item spacing={2}>
+					<Grid item md={6}>
 						<TextField
 							multiline
 							fullWidth
@@ -80,14 +86,14 @@ const AddPost = () => {
 							onChange={changeHandler}
 						/>
 					</Grid>
-					<Grid item spacing={2}>
+					<Grid item md={6}>
 						<FileInput
 							label="Image"
 							onChange={fileChangeHandler}
 							name="image"
 						/>
 					</Grid>
-					<Grid item spacing={2}>
+					<Grid item md={6}>
 						<Button
 							type="submit"
 							variant="contained"

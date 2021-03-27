@@ -6,11 +6,11 @@ import Button from "@material-ui/core/Button";
 const AddComment = () => {
 	return (
 		<form>
-			<Grid container md={6} direction="column" spacing={3}>
-				<Grid item spacing={2}>
+			<Grid container direction="column" spacing={3}>
+				<Grid item md={6}>
 					<TextField fullWidth label="Name" variant="outlined" />
 				</Grid>
-				<Grid item spacing={2}>
+				<Grid item md={6}>
 					<TextField
 						multiline
 						fullWidth
@@ -19,7 +19,7 @@ const AddComment = () => {
 						rows={4}
 					/>
 				</Grid>
-				<Grid item spacing={2}>
+				<Grid item md={6}>
 					<Button
 						type="submit"
 						variant="contained"
