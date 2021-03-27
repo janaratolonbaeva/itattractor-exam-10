@@ -1,7 +1,6 @@
 import React from 'react';
 import Typography from "@material-ui/core/Typography";
 import CommentItem from "../../components/CommentItem/CommentItem";
-import Grid from "@material-ui/core/Grid";
 import AddComment from "../../components/AddComment/AddComment";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
